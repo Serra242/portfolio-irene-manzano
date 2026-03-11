@@ -1,8 +1,12 @@
-/* 1. CONFIGURACIÓN BÁSICA */
+/* 1. CONFIGURACIÓN BÁSICA Y DESPLAZAMIENTO SUAVE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Esto crea la transición suave al hacer clic en el menú */
 }
 
 body {
@@ -111,7 +115,7 @@ section {
 .galeria-proyectos {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Permite que las tarjetas bajen de línea si no caben */
+    flex-wrap: wrap; 
     gap: 3rem;
     margin-top: 3rem;
 }
@@ -174,33 +178,28 @@ footer {
 /* ========================================= */
 /* 9. ADAPTACIÓN PARA MÓVILES (Responsive) */
 /* ========================================= */
-
 @media (max-width: 768px) {
-    /* 1. Ajustamos la cabecera y el menú */
     nav {
-        flex-direction: column; /* Ponemos el título arriba y el menú abajo */
+        flex-direction: column;
         gap: 1rem;
     }
 
     nav ul {
-        flex-wrap: wrap; /* Si el menú no cabe, baja de línea automáticamente */
+        flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
     }
 
-    /* 2. Reducimos el tamaño del texto principal para que no se salga */
     .seccion-hero h1 {
         font-size: 2.2rem;
     }
 
-    /* 3. Reducimos los márgenes de las secciones para aprovechar el espacio */
     section {
         padding: 3rem 1.5rem;
     }
 
-    /* 4. Hacemos que las tarjetas se adapten a pantallas estrechas */
     .tarjeta-proyecto {
-        width: 100%; /* Ahora la tarjeta ocupa todo el ancho disponible del móvil... */
-        max-width: 350px; /* ...pero sin pasarse de 350px por si están en una tablet */
+        width: 100%;
+        max-width: 350px;
     }
 }
