@@ -14,6 +14,7 @@ body {
     line-height: 1.7;
     color: #2c2c2c;
     background-color: #fafafa;
+    overflow-x: hidden; 
 }
 
 h1, h2, h3 {
@@ -180,14 +181,6 @@ section {
 }
 
 /* 7. TARJETAS DE PROYECTOS Y ENLACES */
-.galeria-proyectos {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
-    gap: 3rem;
-    margin-top: 3rem;
-}
-
 .enlace-proyecto {
     text-decoration: none;
     color: inherit;
@@ -198,14 +191,14 @@ section {
     background-color: white;
     padding: 0;
     border: 1px solid #eee;
-    width: 350px;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    height: 100%; 
 }
 
 .enlace-proyecto:hover .tarjeta-proyecto {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     border-color: #8b0000;
 }
 
@@ -222,12 +215,89 @@ section {
 
 .tarjeta-proyecto img {
     width: 100%; 
-    height: 220px;
+    height: 200px;
     object-fit: cover;
     border-bottom: 3px solid #111;
 }
 
-/* 8. NUEVA GALERÍA DE FOTOS (Álbum) */
+/* 8. DISEÑO DE LA CINTA DE PELÍCULA Y FLECHAS */
+.cinta-pelicula-wrapper {
+    background-color: #111;
+    padding: 15px 0;
+    margin-top: 3rem;
+    position: relative; /* Para poder posicionar las flechas */
+    border-radius: 4px;
+    max-width: 100vw;
+}
+
+.cinta-pelicula-wrapper::before,
+.cinta-pelicula-wrapper::after {
+    content: "";
+    display: block;
+    height: 12px;
+    background-image: repeating-linear-gradient(to right, #fff 0px, #fff 15px, transparent 15px, transparent 25px);
+    margin: 0 10px;
+}
+
+.cinta-pelicula {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    padding: 2rem;
+    scroll-snap-type: x mandatory;
+    
+    /* Ocultamos la barra de scroll nativa */
+    -ms-overflow-style: none;  /* IE y Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Ocultamos la barra de scroll nativa en Chrome, Safari y Opera */
+.cinta-pelicula::-webkit-scrollbar {
+    display: none;
+}
+
+.frame-pelicula {
+    scroll-snap-align: center;
+    min-width: 300px;
+    max-width: 350px;
+    flex-shrink: 0; 
+}
+
+/* Diseño de los botones de flecha */
+.btn-scroll {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(139, 0, 0, 0.9); /* Rojo oscuro cine */
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.btn-scroll:hover {
+    background-color: rgba(180, 0, 0, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.btn-izq {
+    left: 15px;
+}
+
+.btn-der {
+    right: 15px;
+}
+
+/* 9. GALERÍA DE FOTOS (Álbum) */
 .album-fotos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -250,19 +320,18 @@ section {
     position: relative;
 }
 
-/* 9. CONTACTO Y FOOTER */
+/* 10. CONTACTO Y FOOTER */
 #contacto {
     background-color: #fff;
     border-top: 1px solid #eee;
     max-width: 100%;
 }
 
-/* Estilos para los nuevos botones de contacto */
 .enlaces-contacto {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    flex-wrap: wrap; /* Para que en móviles bajen de línea si no caben */
+    flex-wrap: wrap; 
 }
 
 .boton-contacto {
@@ -283,7 +352,7 @@ section {
 }
 
 .boton-contacto.linkedin {
-    background-color: #0077b5; /* Color azul oficial de LinkedIn */
+    background-color: #0077b5; 
     color: white;
     border: none;
 }
@@ -300,7 +369,19 @@ footer {
     font-size: 0.8rem;
 }
 
-/* 10. ADAPTACIÓN PARA MÓVILES (Responsive) */
+/* 11. ANIMACIONES DE SCROLL (POPEO) */
+.oculto {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+
+.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 12. ADAPTACIÓN PARA MÓVILES (Responsive) */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -329,9 +410,17 @@ footer {
         flex-direction: column;
         gap: 2rem;
     }
-
-    .tarjeta-proyecto {
-        width: 100%;
-        max-width: 350px;
+    
+    .cinta-pelicula-wrapper {
+        padding: 10px 0;
+    }
+    
+    .frame-pelicula {
+        min-width: 85vw; 
+    }
+    
+    /* En móviles es mejor esconder las flechas porque se puede hacer scroll con el dedo */
+    .btn-scroll {
+        display: none;
     }
 }

@@ -29,7 +29,7 @@
             <a href="#proyectos" class="boton">Ver mis proyectos</a>
         </section>
 
-        <section id="sobre-mi">
+        <section id="sobre-mi" class="oculto">
             <h2>Detrás de la lente y el micro</h2>
             <div class="texto-articulo">
                 <p>Mi camino en el mundo de la comunicación comenzó con la proyección de una película en clase: <em>Invictus</em>. Lo que empezó como una curiosidad cinéfila tras descubrir el poder de una historia bien contada, terminó convirtiéndose en mi vocación y en un doble grado en Comunicación Audiovisual y Periodismo.</p>
@@ -40,7 +40,7 @@
             <a href="https://irenemanigl.wixsite.com/website" target="_blank" class="boton-secundario">Conoce mi historia completa</a>
         </section>
 
-        <section id="experiencia" class="seccion-experiencia">
+        <section id="experiencia" class="seccion-experiencia oculto">
             <h2>Perfil Profesional</h2>
             <div class="texto-articulo">
                 <p>Periodista y Comunicadora Audiovisual especializada en la creación de contenido estratégico y narrativas digitales. Cuento con una sólida experiencia adaptando mensajes complejos para audiencias diversas, desde organismos institucionales hasta el sector educativo. Soy experta en edición de vídeo y diseño sonoro, con formación especializada en el uso de Inteligencia Artificial para la optimización y generación de contenido innovador.</p>
@@ -61,33 +61,47 @@
             </div>
         </section>
 
-        <section id="proyectos">
+        <section id="proyectos" class="oculto">
             <h2>Mis Proyectos</h2>
             <p>Una selección de mis trabajos en audiovisual y redacción.</p>
-            <div class="galeria-proyectos">
-                
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="enlace-proyecto">
-                    <div class="tarjeta-proyecto">
-                        <img src="images/pug.jpg" alt="Fotograma del cortometraje sobre el Pug">
-                        <h3>Cortometraje: La Mirada del Pug</h3>
-                        <p>Documental corto que explora la cría ética de animales.</p>
-                    </div>
-                </a>
+            
+            <div class="cinta-pelicula-wrapper">
+                <button class="btn-scroll btn-izq" id="btn-izq">&#10094;</button>
+                <button class="btn-scroll btn-der" id="btn-der">&#10095;</button>
 
-                <a href="https://vimeo.com/" target="_blank" class="enlace-proyecto">
-                    <div class="tarjeta-proyecto">
-                        <img src="images/border.jpg" alt="Fotografía durante la entrevista en la frontera">
-                        <h3>Entrevista Exclusiva: Al Límite</h3>
-                        <p>Reportaje de investigación y entrevista en profundidad.</p>
-                    </div>
-                </a>
+                <div class="cinta-pelicula" id="cinta">
+                    
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="enlace-proyecto frame-pelicula">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/pug.jpg" alt="Fotograma del corto">
+                            <h3>La Mirada del Pug</h3>
+                            <p>Documental corto sobre cría ética.</p>
+                        </div>
+                    </a>
 
+                    <a href="https://vimeo.com/" target="_blank" class="enlace-proyecto frame-pelicula">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/border.jpg" alt="Fotografía entrevista">
+                            <h3>Entrevista: Al Límite</h3>
+                            <p>Reportaje de investigación.</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" target="_blank" class="enlace-proyecto frame-pelicula">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/fotoGaleria1.jpg" alt="Proyecto en proceso">
+                            <h3>Proyecto en Desarrollo</h3>
+                            <p>Próximamente más contenido.</p>
+                        </div>
+                    </a>
+
+                </div>
             </div>
             
              <a href="docs/CV_Irene_Manzano.pdf" target="_blank" rel="noopener noreferrer" class="boton" style="margin-top: 3rem;">Ver y Descargar CV</a>
         </section>
 
-        <section id="galeria">
+        <section id="galeria" class="oculto">
             <h2>Detrás de las cámaras</h2>
             <p>Un pequeño vistazo a mis rodajes, coberturas y trabajo en equipo.</p>
             <div class="album-fotos">
@@ -98,7 +112,7 @@
             </div>
         </section>
 
-        <section id="contacto">
+        <section id="contacto" class="oculto">
             <h2>¿Hablamos?</h2>
             <p style="margin-bottom: 2rem;">Siempre abierta a nuevas oportunidades, colaboraciones o proyectos con enfoque social.</p>
             
@@ -122,5 +136,36 @@
         <p>© 2026 Irene Manzano. Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        // --- 1. Animaciones de scroll (Popeo) ---
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach((entrada) => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add('mostrar');
+                }
+            });
+        });
+
+        const elementosOcultos = document.querySelectorAll('.oculto');
+        elementosOcultos.forEach((el) => observador.observe(el));
+
+        // --- 2. Funcionalidad de las flechas de la cinta de película ---
+        const cinta = document.getElementById('cinta');
+        const btnIzq = document.getElementById('btn-izq');
+        const btnDer = document.getElementById('btn-der');
+
+        btnDer.addEventListener('click', () => {
+            // Calcula cuánto mide un fotograma + el espacio (gap) para avanzar justo eso
+            const frameWidth = cinta.querySelector('.frame-pelicula').offsetWidth;
+            const gap = 32; // Corresponde a los 2rem de gap en CSS
+            cinta.scrollBy({ left: frameWidth + gap, behavior: 'smooth' });
+        });
+
+        btnIzq.addEventListener('click', () => {
+            const frameWidth = cinta.querySelector('.frame-pelicula').offsetWidth;
+            const gap = 32;
+            cinta.scrollBy({ left: -(frameWidth + gap), behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
