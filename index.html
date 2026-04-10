@@ -23,13 +23,19 @@
     </header>
 
     <main>
+        <div class="banner-portada">
+            <img src="images/irene.jpg" alt="Irene Manzano frente a la Facultad de Comunicación">
+        </div>
+
         <section id="inicio" class="seccion-hero">
-            <h1>Contando historias a través de la imagen y el sonido.</h1>
-            <p>Creativa audiovisual y periodista. Pasión por el cine, la radio y los proyectos con enfoque social.</p>
-            <a href="#proyectos" class="boton">Ver mis proyectos</a>
+            <div class="hero-texto">
+                <h1>Contando historias a través de la imagen y el sonido.</h1>
+                <p>Creativa audiovisual y periodista. Pasión por el cine, la radio y los proyectos con enfoque social.</p>
+                <a href="#proyectos" class="boton">Ver mis proyectos</a>
+            </div>
         </section>
 
-        <section id="sobre-mi" class="oculto">
+        <section id="sobre-mi" class="oculto seccion-blanca">
             <h2>Detrás de la lente y el micro</h2>
             <div class="texto-articulo">
                 <p>Mi camino en el mundo de la comunicación comenzó con la proyección de una película en clase: <em>Invictus</em>. Lo que empezó como una curiosidad cinéfila tras descubrir el poder de una historia bien contada, terminó convirtiéndose en mi vocación y en un doble grado en Comunicación Audiovisual y Periodismo.</p>
@@ -39,7 +45,7 @@
             <a href="https://irenemanigl.wixsite.com/website" target="_blank" class="boton-secundario">Conoce mi historia completa</a>
         </section>
 
-        <section id="experiencia" class="seccion-experiencia oculto">
+        <section id="experiencia" class="seccion-experiencia oculto seccion-crema">
             <h2>Perfil Profesional</h2>
             <div class="texto-articulo">
                 <p>Periodista y Comunicadora Audiovisual especializada en la creación de contenido estratégico y narrativas digitales. Cuento con una sólida experiencia adaptando mensajes complejos para audiencias diversas, desde organismos institucionales hasta el sector educativo. Soy experta en edición de vídeo y diseño sonoro, con formación especializada en el uso de Inteligencia Artificial para la optimización y generación de contenido innovador.</p>
@@ -60,7 +66,7 @@
             </div>
         </section>
 
-        <section id="proyectos" class="oculto">
+        <section id="proyectos" class="oculto seccion-blanca">
             <h2>Mis Proyectos</h2>
             <p>Una selección de mis trabajos en audiovisual, diseño y redacción.</p>
             
@@ -172,7 +178,7 @@
              <a href="docs/CV_Irene_Manzano.pdf" target="_blank" rel="noopener noreferrer" class="boton" style="margin-top: 3rem;">Ver y Descargar CV</a>
         </section>
 
-        <section id="galeria" class="oculto">
+        <section id="galeria" class="oculto seccion-gris">
             <h2>Detrás de las cámaras</h2>
             <p>Un pequeño vistazo a mis rodajes, coberturas y trabajo en equipo.</p>
             <div class="album-fotos">
@@ -183,7 +189,7 @@
             </div>
         </section>
 
-        <section id="contacto" class="oculto">
+        <section id="contacto" class="oculto seccion-blanca">
             <h2>¿Hablamos?</h2>
             <p style="margin-bottom: 2rem;">Siempre abierta a nuevas oportunidades, colaboraciones o proyectos con enfoque social.</p>
             <div class="enlaces-contacto">
@@ -239,7 +245,7 @@
             cinta.scrollBy({ left: -(frameWidth + gap), behavior: 'smooth' });
         });
 
-        // 3. Base de Datos de tus Proyectos (Con la política estricta de YouTube)
+        // 3. Base de Datos de tus Proyectos
         const infoProyectos = {
             'p1': {
                 titulo: '13 Lunas: Contar para no olvidar',
@@ -303,27 +309,19 @@
             }
         };
 
-        // 4. Funciones de la Ventana Modal
-        const modal = document.getElementById('modal-proyecto');
-        const modalMedia = document.getElementById('modal-media');
-        const modalTitulo = document.getElementById('modal-titulo');
-        const modalDesc = document.getElementById('modal-descripcion');
-
         function abrirModal(idProyecto) {
             const data = infoProyectos[idProyecto];
             modalTitulo.innerHTML = data.titulo;
             modalDesc.innerHTML = data.desc;
-            modalMedia.innerHTML = data.media; // Inyecta video o imagen
+            modalMedia.innerHTML = data.media; 
             modal.classList.add('activo');
         }
 
         function cerrarModal() {
             modal.classList.remove('activo');
-            // Al cerrar, vaciamos el contenido para que el video de YouTube pare de sonar
             setTimeout(() => { modalMedia.innerHTML = ''; }, 300);
         }
 
-        // Cerrar también si hace clic fuera de la caja blanca
         window.onclick = function(event) {
             if (event.target == modal) {
                 cerrarModal();
