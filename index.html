@@ -36,7 +36,6 @@
                 <p>Mi perfil se ha moldeado a través de la curiosidad y el terreno: desde la intimidad de la radio universitaria, donde aprendí el valor de la voz, hasta la redacción de un periódico local, donde curtí mi capacidad de análisis y escritura. Sin embargo, mi mirada más auténtica la desarrollé fuera de las aulas, capturando la esencia de mis 18 años como Scout a través de la fotografía; una experiencia que me enseñó a valorar lo humano y lo espontáneo.</p>
                 <p>En el set de televisión descubrí la adrenalina de la regiduría y la precisión del directo, una energía que hoy traslado al mundo del marketing digital. En este último sector he aprendido a cerrar el círculo: planificar, editar y transformar una idea estratégica en una realidad visual que conecte con el cliente. Soy, en esencia, una comunicadora todoterreno que disfruta tanto del caos creativo de una idea como del rigor técnico necesario para hacerla brillar.</p>
             </div>
-            
             <a href="https://irenemanigl.wixsite.com/website" target="_blank" class="boton-secundario">Conoce mi historia completa</a>
         </section>
 
@@ -63,7 +62,7 @@
 
         <section id="proyectos" class="oculto">
             <h2>Mis Proyectos</h2>
-            <p>Una selección de mis trabajos en audiovisual y redacción.</p>
+            <p>Una selección de mis trabajos en audiovisual, diseño y redacción.</p>
             
             <div class="cinta-pelicula-wrapper">
                 <button class="btn-scroll btn-izq" id="btn-izq">&#10094;</button>
@@ -71,29 +70,101 @@
 
                 <div class="cinta-pelicula" id="cinta">
                     
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="enlace-proyecto frame-pelicula">
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p1')">
                         <div class="tarjeta-proyecto">
-                            <img src="images/pug.jpg" alt="Fotograma del corto">
-                            <h3>La Mirada del Pug</h3>
-                            <p>Documental corto sobre cría ética.</p>
+                            <img src="images/13lunas.jpg" alt="Portada podcast 13 Lunas">
+                            <h3>13 Lunas</h3>
+                            <p>Docuficción sonora sobre violencia de género.</p>
                         </div>
-                    </a>
+                    </div>
 
-                    <a href="https://vimeo.com/" target="_blank" class="enlace-proyecto frame-pelicula">
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p2')">
                         <div class="tarjeta-proyecto">
-                            <img src="images/border.jpg" alt="Fotografía entrevista">
-                            <h3>Entrevista: Al Límite</h3>
-                            <p>Reportaje de investigación.</p>
+                            <img src="images/proyectohombre.jpg" alt="Logo Proyecto Hombre">
+                            <h3>Proyecto Hombre</h3>
+                            <p>Documental de historias reales de rehabilitación.</p>
                         </div>
-                    </a>
-                    
-                    <a href="#" target="_blank" class="enlace-proyecto frame-pelicula">
+                    </div>
+
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p3')">
                         <div class="tarjeta-proyecto">
-                            <img src="images/fotoGaleria1.jpg" alt="Proyecto en proceso">
-                            <h3>Proyecto en Desarrollo</h3>
-                            <p>Próximamente más contenido.</p>
+                            <img src="images/delete.jpg" alt="Cortometraje Delete">
+                            <h3>Delete</h3>
+                            <p>Cortometraje de intriga. Ayudantía de dirección.</p>
                         </div>
-                    </a>
+                    </div>
+
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p4')">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/feroz.jpg" alt="Revista Feroz">
+                            <h3>Feroz Magazine</h3>
+                            <p>Diseño editorial enfocado en la diversidad.</p>
+                        </div>
+                    </div>
+
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p5')">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/callejon.jpg" alt="El Callejón">
+                            <h3>El Callejón</h3>
+                            <p>Cortometraje noir sobre persecución psicológica.</p>
+                        </div>
+                    </div>
+
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p6')">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/sabina.jpg" alt="Joaquín Sabina">
+                            <h3>Joaquín Sabina</h3>
+                            <p>Videoensayo sobre su impacto y legado cultural.</p>
+                        </div>
+                    </div>
+
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p7')">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/receta.jpg" alt="Receta">
+                            <h3>Receta VFX</h3>
+                            <p>Experimentación visual y Motion Graphics.</p>
+                        </div>
+                    </div>
+
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p8')">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/coppola.jpg" alt="Revista Coppola">
+                            <h3>Revista Coppola</h3>
+                            <p>Diseño premium dedicado al cine internacional.</p>
+                        </div>
+                    </div>
+
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p9')">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/kanguro.jpg" alt="App Kanguro">
+                            <h3>App Kanguro</h3>
+                            <p>Diseño UX/UI en Figma para cuidado infantil.</p>
+                        </div>
+                    </div>
+
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p10')">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/abuela.jpg" alt="La abuela de Varillas">
+                            <h3>Abuela de Varillas</h3>
+                            <p>Cine de guerrilla y transformación sin maquillaje.</p>
+                        </div>
+                    </div>
+
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p11')">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/torre.jpg" alt="Torre del Homenaje">
+                            <h3>Torre del Homenaje</h3>
+                            <p>Documental de la evolución arquitectónica de Alba.</p>
+                        </div>
+                    </div>
+
+                    <div class="enlace-proyecto frame-pelicula" onclick="abrirModal('p12')">
+                        <div class="tarjeta-proyecto">
+                            <img src="images/textos.jpg" alt="Textos Literarios">
+                            <h3>Textos Literarios</h3>
+                            <p>Página personal con artículos y relatos.</p>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -115,19 +186,10 @@
         <section id="contacto" class="oculto">
             <h2>¿Hablamos?</h2>
             <p style="margin-bottom: 2rem;">Siempre abierta a nuevas oportunidades, colaboraciones o proyectos con enfoque social.</p>
-            
             <div class="enlaces-contacto">
-                <a href="tel:+34618900411" class="boton-contacto">
-                    &#9742; +34 618 90 04 11
-                </a>
-
-                <a href="mailto:irene.manigl@gmail.com" class="boton-contacto">
-                    &#9993; irene.manigl@gmail.com
-                </a>
-                
-                <a href="https://www.linkedin.com/in/irene-manzano-iglesias-07474633b/" target="_blank" class="boton-contacto linkedin">
-                    <strong>in</strong> LinkedIn
-                </a>
+                <a href="tel:+34618900411" class="boton-contacto">&#9742; +34 618 90 04 11</a>
+                <a href="mailto:irene.manigl@gmail.com" class="boton-contacto">&#9993; irene.manigl@gmail.com</a>
+                <a href="https://www.linkedin.com/in/irene-manzano-iglesias-07474633b/" target="_blank" class="boton-contacto linkedin"><strong>in</strong> LinkedIn</a>
             </div>
         </section>
     </main>
@@ -136,8 +198,20 @@
         <p>© 2026 Irene Manzano. Todos los derechos reservados.</p>
     </footer>
 
+    <div id="modal-proyecto" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+            <div id="modal-media" class="modal-media">
+                </div>
+            <div class="modal-texto">
+                <h3 id="modal-titulo">Título</h3>
+                <div id="modal-descripcion">Descripción</div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // --- 1. Animaciones de scroll (Popeo) ---
+        // 1. Animaciones Popeo
         const observador = new IntersectionObserver((entradas) => {
             entradas.forEach((entrada) => {
                 if (entrada.isIntersecting) {
@@ -145,19 +219,17 @@
                 }
             });
         });
-
         const elementosOcultos = document.querySelectorAll('.oculto');
         elementosOcultos.forEach((el) => observador.observe(el));
 
-        // --- 2. Funcionalidad de las flechas de la cinta de película ---
+        // 2. Flechas Cinta
         const cinta = document.getElementById('cinta');
         const btnIzq = document.getElementById('btn-izq');
         const btnDer = document.getElementById('btn-der');
 
         btnDer.addEventListener('click', () => {
-            // Calcula cuánto mide un fotograma + el espacio (gap) para avanzar justo eso
             const frameWidth = cinta.querySelector('.frame-pelicula').offsetWidth;
-            const gap = 32; // Corresponde a los 2rem de gap en CSS
+            const gap = 32; 
             cinta.scrollBy({ left: frameWidth + gap, behavior: 'smooth' });
         });
 
@@ -166,6 +238,97 @@
             const gap = 32;
             cinta.scrollBy({ left: -(frameWidth + gap), behavior: 'smooth' });
         });
+
+        // 3. Base de Datos de tus Proyectos (Con la política estricta de YouTube)
+        const infoProyectos = {
+            'p1': {
+                titulo: '13 Lunas: Contar para no olvidar',
+                media: '<iframe src="https://www.youtube-nocookie.com/embed/un6QPRaFL48" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+                desc: '<p>Una serie de docuficción sonora basada en hechos reales de violencia de género en España. Cada episodio reconstruye en primera persona la historia de una víctima silenciada, combinando periodismo narrativo, diseño sonoro inmersivo y compromiso ético.</p><p>Un proyecto que transforma los datos fríos en memoria viva. Ganador del Concurso de Creación de Podcast 8M de la UPSA.</p>'
+            },
+            'p2': {
+                titulo: 'Documental Proyecto Hombre',
+                media: '<img src="images/proyectohombre.jpg" alt="Proyecto Hombre">',
+                desc: '<p>Documental en colaboración con la Universidad Pontificia de Salamanca y la organización Proyecto Hombre. Surge con el objetivo de visibilizar y dar voz a las historias reales de personas que han pasado por procesos de rehabilitación y reinserción social.</p><p>Producción realizada junto a profesores de la universidad y profesionales del sector audiovisual. Estoy implicada en todas las fases del proyecto: desde el desarrollo de la idea y planificación del rodaje, hasta la grabación y entrevistas.</p>'
+            },
+            'p3': {
+                titulo: 'Cortometraje: Delete',
+                media: '<iframe src="https://www.youtube-nocookie.com/embed/Q6jcXr05M3o" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+                desc: '<p>Ayudante de dirección para el trabajo final de la asignatura de Realización de Cortometrajes. En este thriller de intriga, mi reto principal fue liderar la logística de un rodaje que jugaba con la dualidad dimensional.</p><p>Supervisé la transición entre interiores y exteriores, asegurando que la estética visual de contrastes cromáticos se mantuviera consistente. A destacar la gestión de una extensa jornada nocturna donde el equipo mantuvo el rendimiento y completó todas las secuencias en el tiempo previsto.</p>'
+            },
+            'p4': {
+                titulo: 'Revista Feroz Magazine',
+                media: '<img src="images/feroz.jpg" alt="Feroz Magazine">',
+                desc: '<p>La revista <em>Feroz Magazine</em> surge de la necesidad de cubrir los Premios Feroz de la edición de 2025. A través de reportajes, análisis y entrevistas, pone el foco en las tensiones sociales, la diversidad, la representación de género y el poder del cine como motor de cambio.</p><a href="https://drive.google.com/file/d/1XyY4GlhIJXtet8AwBxKiMpaZJk5XwUu0/view" target="_blank" class="boton" style="margin-top:1rem; padding:0.5rem 1rem;">Ver Revista (PDF)</a>'
+            },
+            'p5': {
+                titulo: 'Cortometraje: El Callejón',
+                media: '<iframe src="https://www.youtube-nocookie.com/embed/TJ0k19FrIHc" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+                desc: '<p><em>El callejón</em> es un cortometraje de suspense con estética de cine negro, inspirado en el cuento sufí <em>¿Por qué estoy aquí?</em> El proyecto aborda el miedo a ser perseguido desde una perspectiva psicológica y visual.</p><p>La narrativa se construye en dos planos: una realidad ficticia en blanco y negro (formato 14:9), que representa el universo noir, y una realidad final en color (formato 2:1) que desmonta la percepción inicial. Presentado al Certamen Internacional de Cortos Ciudad de Soria.</p>'
+            },
+            'p6': {
+                titulo: 'Videoensayo Joaquín Sabina',
+                media: '<iframe src="https://www.youtube-nocookie.com/embed/mniicwPqEPQ" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+                desc: '<p>Desarrollo integral de un videoensayo documental sobre la figura y el legado de Joaquín Sabina. Como autora única del proyecto, llevé a cabo una investigación profunda de archivo para construir un guion narrativo que analiza su impacto cultural.</p><p>Realicé la locución original y dirigí todo el proceso de postproducción, integrando ritmo visual y diseño sonoro para capturar la esencia bohemia del artista.</p>'
+            },
+            'p7': {
+                titulo: 'Receta After Effects',
+                media: '<iframe src="https://www.youtube-nocookie.com/embed/HMXM9gTCe9o" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+                desc: '<p>Pieza audiovisual centrada en la experimentación visual y el Motion Graphics. Partiendo de una base documental sobre una receta tradicional, utilicé After Effects para elevar la narrativa técnica.</p><p>Integré elementos digitales, transiciones y efectos visuales que modernizan el lenguaje de los vídeos de cocina. Realicé el ciclo completo, desde la dirección de fotografía en rodaje hasta la edición y el diseño de VFX final.</p>'
+            },
+            'p8': {
+                titulo: 'Revista Coppola',
+                media: '<img src="images/coppola.jpg" alt="Coppola">',
+                desc: '<p>Diseño integral de una publicación premium dedicada al cine internacional. El proyecto se centró en la creación de una identidad visual sofisticada mediante el uso avanzado de Adobe InDesign.</p><p>Gestioné la arquitectura de página a través de retículas complejas, estilos de párrafo y carácter, logrando un equilibrio visual entre el contenido fotográfico de alta calidad y los bloques de texto para asegurar un acabado profesional listo para imprenta.</p><a href="https://drive.google.com/file/d/14NTlRS0m7wKy0-FtazHYmxMwui23se9_/view" target="_blank" class="boton" style="margin-top:1rem; padding:0.5rem 1rem;">Ver Revista (PDF)</a>'
+            },
+            'p9': {
+                titulo: 'Diseño de App: Kanguro',
+                media: '<img src="images/kanguro.jpg" alt="App Kanguro">',
+                desc: '<p>Diseño integral de una plataforma móvil orientada a conectar familias con profesionales del cuidado infantil. Desarrollado bajo una metodología de diseño centrado en el usuario utilizando Figma para la creación de un <em>Design System</em> completo.</p><p>Me enfoqué en reducir la fricción en el proceso de reserva, creando una interfaz limpia e intuitiva que prioriza la seguridad y la transparencia, elementos críticos para generar confianza en el entorno del cuidado de menores.</p>'
+            },
+            'p10': {
+                titulo: 'La abuela de Varillas',
+                media: '<iframe src="https://www.youtube-nocookie.com/embed/v_zVP_OTFus" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+                desc: '<p>Un reto interpretativo y técnico donde asumí la dirección, rodaje y edición completa de la pieza sobre un guion ajeno. El desafío principal fue narrar la transformación física de la protagonista en anciana sin contar con equipo de maquillaje.</p><p>Lo solucioné mediante una puesta en escena estratégica: el uso de la iluminación, encuadres específicos, el vestuario y la contención interpretativa de la actriz para sugerir el paso del tiempo. Pura experiencia de cine de guerrilla.</p>'
+            },
+            'p11': {
+                titulo: 'Documental: Torre del Homenaje',
+                media: '<iframe src="https://www.youtube-nocookie.com/embed/8YqgxYOpxi0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+                desc: '<p>Documental sobre la emblemática Torre del Homenaje de Alba de Tormes. Lideré el proceso de investigación y documentación, contrastando la historia del monumento con testimonios expertos (guía oficial y el arquitecto técnico de la restauración).</p><p>Coordiné la obtención de material de archivo y la grabación de imágenes de recurso para narrar la evolución arquitectónica y la importancia estratégica de la torre en la región.</p>'
+            },
+            'p12': {
+                titulo: 'Textos literarios',
+                media: '<img src="images/textos.jpg" alt="Textos">',
+                desc: '<p>Como parte de la asignatura de Expresión Oral y Escrita, desarrollé una página web personal donde recopilo varios textos propios sobre temas diversos, elaborados a lo largo del curso.</p><p>En la web exploro distintos géneros y estilos de escritura, desde artículos de opinión y relatos breves hasta reflexiones personales y análisis temáticos.</p><a href="https://irenemanigl.wixsite.com/website" target="_blank" class="boton" style="margin-top:1rem; padding:0.5rem 1rem;">Visitar Web</a>'
+            }
+        };
+
+        // 4. Funciones de la Ventana Modal
+        const modal = document.getElementById('modal-proyecto');
+        const modalMedia = document.getElementById('modal-media');
+        const modalTitulo = document.getElementById('modal-titulo');
+        const modalDesc = document.getElementById('modal-descripcion');
+
+        function abrirModal(idProyecto) {
+            const data = infoProyectos[idProyecto];
+            modalTitulo.innerHTML = data.titulo;
+            modalDesc.innerHTML = data.desc;
+            modalMedia.innerHTML = data.media; // Inyecta video o imagen
+            modal.classList.add('activo');
+        }
+
+        function cerrarModal() {
+            modal.classList.remove('activo');
+            // Al cerrar, vaciamos el contenido para que el video de YouTube pare de sonar
+            setTimeout(() => { modalMedia.innerHTML = ''; }, 300);
+        }
+
+        // Cerrar también si hace clic fuera de la caja blanca
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                cerrarModal();
+            }
+        }
     </script>
 </body>
 </html>
