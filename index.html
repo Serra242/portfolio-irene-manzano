@@ -309,6 +309,12 @@
             }
         };
 
+        // 4. Funciones de la Ventana Modal (¡AQUÍ ESTÁN LAS 4 LÍNEAS MÁGICAS!)
+        const modal = document.getElementById('modal-proyecto');
+        const modalMedia = document.getElementById('modal-media');
+        const modalTitulo = document.getElementById('modal-titulo');
+        const modalDesc = document.getElementById('modal-descripcion');
+
         function abrirModal(idProyecto) {
             const data = infoProyectos[idProyecto];
             modalTitulo.innerHTML = data.titulo;
