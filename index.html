@@ -10,7 +10,7 @@
 
     <main>
         <div class="banner-portada">
-            <img src="images/irene.jpg" alt="Irene Manzano - Banner">
+            <img src="images/irene.png" alt="Irene Manzano - Banner">
         </div>
 
         <header class="hero-clean">
@@ -36,8 +36,8 @@
             
             <nav class="nav-buttons">
                 <button onclick="abrirSobreMi()" class="btn-nav">SOBRE MÍ</button>
-                <a href="#experiencia" class="btn-nav">EXPERIENCIA</a>
-                <a href="#proyectos" class="btn-nav">PROYECTOS</a>
+                <button onclick="irA('experiencia')" class="btn-nav">EXPERIENCIA</button>
+                <button onclick="irA('proyectos')" class="btn-nav">PROYECTOS</button>
                 <a href="https://www.linkedin.com/in/irene-manzano-iglesias-07474633b/" target="_blank" class="btn-icon">in</a>
                 <a href="mailto:irene.manigl@gmail.com" class="btn-icon">@</a>
             </nav>
@@ -228,7 +228,7 @@
             this.textContent = this.textContent === 'Ver más proyectos' ? 'Ver menos' : 'Ver más proyectos';
         });
 
-        // 3. BASE DE DATOS DE PROYECTOS (Con los botones de PDF recuperados)
+        // 3. BASE DE DATOS DE PROYECTOS
         const infoProyectos = {
             'p1': { titulo: '13 Lunas', rol: 'Guion, Periodismo y Diseño Sonoro', fecha: '2024', media: '<iframe src="https://www.youtube-nocookie.com/embed/un6QPRaFL48" allowfullscreen></iframe>', desc: '<p>Docuficción sonora sobre violencia de género. Ganador del Concurso 8M UPSA.</p>' },
             'p2': { titulo: 'Proyecto Hombre', rol: 'Desarrollo, Grabación y Entrevistas', fecha: '2023', media: '<img src="images/proyectohombre.jpg">', desc: '<p>Documental que visibiliza historias de reinserción social.</p>' },
@@ -245,7 +245,7 @@
         };
 
         // 4. FUNCIONES DE VENTANAS MODALES
-        const modal = document.getElementById('modal-proyecto');
+        const modalProyecto = document.getElementById('modal-proyecto');
         const modalMedia = document.getElementById('modal-media');
         
         function abrirModal(id) {
@@ -254,9 +254,9 @@
             document.getElementById('modal-info-extra').innerHTML = `<strong>Rol:</strong> ${data.rol} <br> <strong>Año:</strong> ${data.fecha}`;
             document.getElementById('modal-descripcion').innerHTML = data.desc;
             modalMedia.innerHTML = data.media;
-            modal.classList.add('activo');
+            modalProyecto.classList.add('activo');
         }
-        function cerrarModal() { modal.classList.remove('activo'); setTimeout(() => { modalMedia.innerHTML = ''; }, 300); }
+        function cerrarModal() { modalProyecto.classList.remove('activo'); setTimeout(() => { modalMedia.innerHTML = ''; }, 300); }
         
         function abrirSobreMi() { document.getElementById('modal-sobre-mi').classList.add('activo'); }
         function cerrarSobreMi() { document.getElementById('modal-sobre-mi').classList.remove('activo'); }
@@ -271,6 +271,14 @@
                 cerrarSobreMi(); 
                 cerrarRaiz();
             } 
+        }
+
+        // 5. FUNCIÓN PARA NAVEGACIÓN LIMPIA (Sin # en la URL)
+        function irA(idSeccion) {
+            const seccion = document.getElementById(idSeccion);
+            if (seccion) {
+                seccion.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     </script>
 </body>
