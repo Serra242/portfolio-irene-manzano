@@ -23,7 +23,7 @@
                 <div class="hero-right">
                     <div class="video-miniatura">
                         <iframe 
-                            src="https://www.youtube-nocookie.com/embed/42CM56b6MSs" 
+                            src="https://www.youtube-nocookie.com/embed/42CM56b6MSs?autoplay=1&mute=1" 
                             title="Irene Manzano Demo Reel" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -235,7 +235,18 @@
 
         // 3. BASE DE DATOS DE PROYECTOS
         const infoProyectos = {
-            'p1': { titulo: '13 Lunas', rol: 'Guion, Periodismo y Diseño Sonoro', fecha: '2024', media: '<iframe src="https://www.youtube-nocookie.com/embed/un6QPRaFL48" allowfullscreen></iframe>', desc: '<p>Docuficción sonora sobre violencia de género. Ganador del Concurso 8M UPSA.</p>' },
+            'p1': { 
+                titulo: '13 Lunas', 
+                rol: 'Guion, Periodismo y Diseño Sonoro', 
+                fecha: '2024', 
+                // AQUÍ ESTÁN LOS 3 VÍDEOS YA ENLAZADOS:
+                media: [
+                    '<iframe src="https://www.youtube-nocookie.com/embed/un6QPRaFL48" allowfullscreen></iframe>',
+                    '<iframe src="https://www.youtube-nocookie.com/embed/m13ZP_BZUcY" allowfullscreen></iframe>',
+                    '<iframe src="https://www.youtube-nocookie.com/embed/3QYwe2F81X0" allowfullscreen></iframe>'
+                ], 
+                desc: '<p>Docuficción sonora sobre violencia de género. Ganador del Concurso 8M UPSA.</p>' 
+            },
             'p2': { titulo: 'Proyecto Hombre', rol: 'Desarrollo, Grabación y Entrevistas', fecha: '2023', media: '<img src="images/proyectohombre.jpg">', desc: '<p>Documental que visibiliza historias de reinserción social.</p>' },
             'p3': { titulo: 'Delete', rol: 'Ayudante de Dirección', fecha: '2023', media: '<iframe src="https://www.youtube-nocookie.com/embed/Q6jcXr05M3o" allowfullscreen></iframe>', desc: '<p>Thriller de intriga. Gestión de logística en rodaje nocturno y dualidad dimensional.</p>' },
             'p4': { titulo: 'Feroz Magazine', rol: 'Diseño Editorial', fecha: '2025', media: '<img src="images/feroz.jpg">', desc: '<p>Cobertura Premios Feroz. Foco en diversidad y cine como motor de cambio.</p><a href="https://drive.google.com/file/d/1XyY4GlhIJXtet8AwBxKiMpaZJk5XwUu0/view" target="_blank" class="boton" style="margin-top: 1rem;">Ver Revista (PDF)</a>' },
@@ -249,18 +260,46 @@
             'p12': { titulo: 'Textos Literarios', rol: 'Redacción Creativa', fecha: '2024', media: '<img src="images/textos.jpg">', desc: '<p>Recopilación de relatos y artículos de opinión personales.</p><a href="https://irenemanigl.wixsite.com/website" target="_blank" class="boton" style="margin-top: 1rem;">Visitar Web</a>' }
         };
 
-        // 4. FUNCIONES DE VENTANAS MODALES
+        // 4. FUNCIONES DE VENTANAS MODALES Y CARRUSEL
         const modalProyecto = document.getElementById('modal-proyecto');
         const modalMedia = document.getElementById('modal-media');
+        let slideActual = 0;
         
         function abrirModal(id) {
             const data = infoProyectos[id];
             document.getElementById('modal-titulo').innerText = data.titulo;
             document.getElementById('modal-info-extra').innerHTML = `<strong>Rol:</strong> ${data.rol} <br> <strong>Año:</strong> ${data.fecha}`;
             document.getElementById('modal-descripcion').innerHTML = data.desc;
-            modalMedia.innerHTML = data.media;
+            
+            // Si es un array (como en 13 Lunas), montamos el carrusel
+            if (Array.isArray(data.media)) {
+                slideActual = 0;
+                let htmlCarrusel = '<div class="carrusel-modal">';
+                data.media.forEach((item, index) => {
+                    htmlCarrusel += `<div class="slide-modal ${index === 0 ? 'activo' : ''}">${item}</div>`;
+                });
+                if (data.media.length > 1) {
+                    htmlCarrusel += `<button class="btn-carrusel btn-prev" onclick="cambiarSlide(-1)">&#10094;</button>`;
+                    htmlCarrusel += `<button class="btn-carrusel btn-next" onclick="cambiarSlide(1)">&#10095;</button>`;
+                }
+                htmlCarrusel += '</div>';
+                modalMedia.innerHTML = htmlCarrusel;
+            } else {
+                // Si es solo un vídeo o imagen, se pone normal
+                modalMedia.innerHTML = data.media;
+            }
+            
             modalProyecto.classList.add('activo');
         }
+
+        // Función para mover las flechitas
+        function cambiarSlide(direccion) {
+            const slides = document.querySelectorAll('.slide-modal');
+            slides[slideActual].classList.remove('activo');
+            slideActual = (slideActual + direccion + slides.length) % slides.length;
+            slides[slideActual].classList.add('activo');
+        }
+
         function cerrarModal() { modalProyecto.classList.remove('activo'); setTimeout(() => { modalMedia.innerHTML = ''; }, 300); }
         
         function abrirSobreMi() { document.getElementById('modal-sobre-mi').classList.add('activo'); }
@@ -269,16 +308,13 @@
         function abrirRaiz() { document.getElementById('modal-raiz').classList.add('activo'); }
         function cerrarRaiz() { document.getElementById('modal-raiz').classList.remove('activo'); }
 
-        // Cerrar haciendo clic fuera
         window.onclick = function(e) { 
             if(e.target.classList.contains('modal')) { 
-                cerrarModal(); 
-                cerrarSobreMi(); 
-                cerrarRaiz();
+                cerrarModal(); cerrarSobreMi(); cerrarRaiz();
             } 
         }
 
-        // 5. FUNCIÓN PARA NAVEGACIÓN LIMPIA (Sin # en la URL)
+        // 5. FUNCIÓN PARA NAVEGACIÓN LIMPIA
         function irA(idSeccion) {
             const seccion = document.getElementById(idSeccion);
             if (seccion) {
