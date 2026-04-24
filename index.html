@@ -9,6 +9,10 @@
 <body>
 
     <main>
+        <div class="banner-portada">
+            <img src="images/irene.png" alt="Irene Manzano - Banner">
+        </div>
+
         <header class="hero-clean">
             <div class="hero-content">
                 <div class="hero-left">
@@ -239,7 +243,6 @@
                 titulo: '13 Lunas', 
                 rol: 'Guion, Periodismo y Diseño Sonoro', 
                 fecha: '2024', 
-                // AQUÍ ESTÁN LOS 3 VÍDEOS YA ENLAZADOS:
                 media: [
                     '<iframe src="https://www.youtube-nocookie.com/embed/un6QPRaFL48" allowfullscreen></iframe>',
                     '<iframe src="https://www.youtube-nocookie.com/embed/m13ZP_BZUcY" allowfullscreen></iframe>',
@@ -292,7 +295,6 @@
             modalProyecto.classList.add('activo');
         }
 
-        // Función para mover las flechitas
         function cambiarSlide(direccion) {
             const slides = document.querySelectorAll('.slide-modal');
             slides[slideActual].classList.remove('activo');
